@@ -6,7 +6,8 @@ Its purpose is to create a convenient platform for respondents: to upload answer
 The project backend developed with Firebase Functions.
 ## API
 ### Answers
-`/answers` - returns an array of all the answers. Each answer has this structure:
+#### /answers - GET
+Returns an array of all the answers. <br/> Each answer has this props:
 `answerId`
 `body`
 `userHandle`
@@ -14,3 +15,29 @@ The project backend developed with Firebase Functions.
 `userImage`
 `confirmCount`
 `commentCount`
+#### /answer - POST
+`authentication` - required <br/>
+Uploading a new answer to the database <br/>
+props: `body`
+#### /answer/:answerId - GET
+Fetch an answer from the database.
+#### /answer/:answerId - DELETE
+`authentication` - required <br/>
+Deleting an answer from the database.
+#### /answer/:answerId/comment - POST
+`authentication` - required <br/>
+Post a comment to an answer.<br/>
+#### /answer/:answerId/confirm - POST
+`authentication` - required <br/>
+Confirm an answer.<br/>
+Every user can confirm an answer once.
+#### /answer/:answerId/unconfirm - POST
+`authentication` - required <br/>
+Unconfirm an answer.<br/>
+### Users
+#### /signup - POST
+#### /login - POST
+#### /user/image - POST
+#### /user - GET
+#### /user/:handle - GET
+#### /notifications - POST
